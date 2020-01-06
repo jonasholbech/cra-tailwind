@@ -2,9 +2,10 @@
   box-sizing: border-box;
   margin: 0;
 }
+/*
 * + * {
   margin-top: 1rem;
-}
+}*/
 html,
 body {
   margin: 0;
@@ -37,4 +38,15 @@ strong {
 }
 li {
   margin-top: 0.25rem;
+}
+/*components/forms/CheckBox*/
+.custom-label input:checked + svg {
+  display: block !important;
+}
+.custom-label svg g {
+  mix-blend-mode: normal;
+}
+/*components/misc/terminal*/
+.terminal-cursor {
+  background: #808080;
 }
