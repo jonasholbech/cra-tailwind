@@ -9,6 +9,9 @@ function App() {
       <Button onClick={() => console.log("I was clicked")}>
         I am a button
       </Button>
+      <Button type="light" onClick={() => console.log("I was clicked")}>
+        I am a button
+      </Button>
     </div>
   );
 }

@@ -1,12 +1,13 @@
 // src/components/button.jsx
 import React from "react";
 
-export default function Button({ children, ...buttonProps }) {
+export default function Button({ children, type = "heavy", ...buttonProps }) {
+  const types = {
+    heavy: `ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-teal-500 hover:bg-teal-600 md:text-lg xl:text-base text-white font-semibold leading-tight shadow-md`,
+    light: `ml-4 rounded-lg px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-white hover:bg-gray-200 md:text-lg xl:text-base text-gray-800 font-semibold leading-tight shadow-md`
+  };
   return (
-    <button
-      className="px-2 py-1 rounded-lg bg-green-400 text-green-800 text-xl font-light uppercase shadow-md hover:shadow-lg"
-      {...buttonProps}
-    >
+    <button className={types[type]} {...buttonProps}>
       {children}
     </button>
   );
