@@ -11,10 +11,9 @@ export default function Terminal({
   OSstate = "open",
   interactive = false
 }) {
-  console.log(interactive);
   const [counter, setCounter] = useState(0);
   const [currentOSstate, setOSstate] = useState(OSstate);
-  const [interactiveMessage, setIntercativeMessage] = useState("");
+  const [interactiveMessage, setIntercativeMessage] = useState(children);
   useEffect(() => {
     if (typing && counter < children.length) {
       const interval = setInterval(() => {
@@ -92,3 +91,4 @@ export default function Terminal({
     </div>
   );
 }
+//TODO: den interaktive terminal kan ikke selv type, måske kigge på det en dag?
