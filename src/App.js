@@ -85,8 +85,7 @@ function App() {
       {active.has("Terminals") && (
         <Suspense fallback={<div>Loading</div>}>
           <div className="flex flex-wrap justify-around">
-            <div class="w-auto m-1">
-              <Terminal>{`git init
+            <Terminal>{`git init
 git add --all
 git commit -m "initial commit"
 git init
@@ -104,15 +103,20 @@ git commit -m "initial commit"
 git init
 git add --all
 git commit -m "initial commit"`}</Terminal>
-            </div>
-            <div class="w-auto m-1">
-              <Terminal typing={true} delay="50">
-                {`git init
+
+            <Terminal typing={true} delay="50">
+              {`git init
 git add --all
 git commit -m "initial commit"
 `}
-              </Terminal>
-            </div>
+            </Terminal>
+
+            <Terminal interactive={true}>
+              {`git init
+git add --all
+git commit -m "initial commit"
+`}
+            </Terminal>
           </div>
         </Suspense>
       )}

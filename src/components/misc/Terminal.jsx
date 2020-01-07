@@ -8,11 +8,13 @@ export default function Terminal({
   bashStart = "$",
   typing = false,
   delay = 100,
-  OSstate = "open"
+  OSstate = "open",
+  interactive = false
 }) {
+  console.log(interactive);
   const [counter, setCounter] = useState(0);
   const [currentOSstate, setOSstate] = useState(OSstate);
-
+  const [interactiveMessage, setIntercativeMessage] = useState("");
   useEffect(() => {
     if (typing && counter < children.length) {
       const interval = setInterval(() => {
@@ -69,13 +71,23 @@ export default function Terminal({
         }
         id="console"
       >
-        <p className="pb-1">
+        <p className="p-1">
           Last login: {loginDate} on {host}
         </p>
-        <pre className="pb-1">
-          {bashStart} {message}
-          <span className="terminal-cursor"> </span>
-        </pre>
+
+        {!interactive && (
+          <pre className="p-1">
+            {bashStart} {message}
+            <span className="terminal-cursor"> </span>
+          </pre>
+        )}
+        {interactive && (
+          <textarea
+            className="p-1 bg-black text-white h-full w-full"
+            onChange={e => setIntercativeMessage(e.target.value.substring(2))}
+            value={`${bashStart} ${interactiveMessage}`}
+          ></textarea>
+        )}
       </div>
     </div>
   );
