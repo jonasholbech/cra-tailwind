@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+//TODO: restore minimized
+//clean up conditional styles
 export default function Terminal({
   children,
   loginDate = "Wed Sep 25 09:11:04",
@@ -7,10 +8,11 @@ export default function Terminal({
   bashStart = "$",
   typing = false,
   delay = 100,
-  OSstate = "default"
+  OSstate = "open"
 }) {
   const [counter, setCounter] = useState(0);
   const [currentOSstate, setOSstate] = useState(OSstate);
+
   useEffect(() => {
     if (typing && counter < children.length) {
       const interval = setInterval(() => {
@@ -26,11 +28,16 @@ export default function Terminal({
   if (currentOSstate === "minimized") {
     return <></>;
   }
-  if (currentOSstate === "maximized") {
-    return <></>;
-  }
+
   return (
-    <div className="w-full shadow-2xl subpixel-antialiased rounded bg-black h-64 border-black mx-auto">
+    <div
+      className={
+        (currentOSstate === "maximized"
+          ? "w-screen absolute top-0 left-0 h-screen"
+          : "w-full h-64") +
+        " shadow-2xl subpixel-antialiased rounded bg-black border-black mx-auto"
+      }
+    >
       <div
         className="flex items-center h-6 rounded-t bg-gray-100 border-b border-gray-500 text-center text-black"
         id="headerTerminal"
@@ -56,7 +63,10 @@ export default function Terminal({
       </div>
 
       <div
-        className="pl-1 pt-1 h-auto  text-green-200 font-mono text-xs bg-black"
+        className={
+          (currentOSstate === "maximized" ? "h-screen" : "h-64") +
+          " pl-1 pt-1 text-green-200 font-mono text-xs bg-black overflow-y-scroll"
+        }
         id="console"
       >
         <p className="pb-1">

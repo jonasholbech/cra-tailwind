@@ -14,7 +14,7 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 18px;
   line-height: 1.4;
-  background: hotpink;
+  background: #f3f7f9;
 }
 h1,
 h2,
@@ -24,14 +24,6 @@ h5,
 h6 {
   color: #222;
   line-height: 1.2;
-}
-h1 + *,
-h2 + *,
-h3 + *,
-h4 + *,
-h5 + *,
-h6 + * {
-  margin-top: 0.5rem;
 }
 
 strong {
@@ -46,6 +38,16 @@ li {
 }
 .custom-label svg g {
   mix-blend-mode: normal;
+}
+.custom-label path {
+  stroke-dasharray: 1px;
+  stroke-dashoffset: 1px;
+  animation: 0.5s drawPath forwards;
+}
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 /*components/misc/terminal*/
 .terminal-cursor {

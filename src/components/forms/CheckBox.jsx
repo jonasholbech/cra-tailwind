@@ -24,11 +24,12 @@ export default function CheckBox({ children, checked, ...checkboxProps }) {
             font-size="none"
             text-anchor="none"
           >
-            <path d="M0 172V0h172v172z" />
             <path
-              d="M145.433 37.933L64.5 118.8658 33.7337 88.0996l-10.134 10.1341L64.5 139.1341l91.067-91.067z"
-              fill="currentColor"
-              stroke-width="1"
+              pathLength="1"
+              d="M145.433 37.933L64.5 118.8658 33.7337 88.0996l-10.134"
+              fill="none"
+              stroke="green"
+              stroke-width="30"
             />
           </g>
         </svg>
