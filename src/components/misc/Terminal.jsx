@@ -35,7 +35,7 @@ export default function Terminal({
         (currentOSstate === "maximized"
           ? "w-screen absolute top-0 left-0 h-screen"
           : "w-full h-64") +
-        " shadow-2xl subpixel-antialiased rounded bg-black border-black mx-auto"
+        " shadow-2xl subpixel-antialiased rounded bg-black border-black mx-auto mb-16"
       }
     >
       <div
@@ -65,7 +65,7 @@ export default function Terminal({
       <div
         className={
           (currentOSstate === "maximized" ? "h-screen" : "h-64") +
-          " pl-1 pt-1 text-green-200 font-mono text-xs bg-black overflow-y-scroll"
+          " pl-1 pt-1 text-green-200 font-mono text-xs bg-black overflow-y-auto"
         }
         id="console"
       >

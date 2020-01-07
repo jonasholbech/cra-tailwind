@@ -5,10 +5,10 @@ const Card = React.lazy(() => import("./components/Card"));
 const Card2 = React.lazy(() => import("./components/Card2"));
 const CheckBox = React.lazy(() => import("./components/forms/CheckBox"));
 const Terminal = React.lazy(() => import("./components/misc/Terminal"));
-const Button = React.lazy(() => import("./components/Button"));
+const Button = React.lazy(() => import("./components/forms/Button"));
 
 function App() {
-  const [active, setActive] = useState(new Set([]));
+  const [active, setActive] = useState(new Set(["Terminals"]));
   const available = [
     "Buttons",
     "Cards",
@@ -38,6 +38,14 @@ function App() {
 
             <Button type="light" onClick={() => console.log("I was clicked")}>
               I am a button
+            </Button>
+
+            <Button
+              disabled={true}
+              type="light"
+              onClick={() => console.log("I was clicked")}
+            >
+              I am disabled
             </Button>
           </div>
         </Suspense>

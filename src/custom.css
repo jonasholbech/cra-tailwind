@@ -53,3 +53,11 @@ li {
 .terminal-cursor {
   background: #808080;
 }
+
+/*forms/button*/
+[data-component="forms/button"] {
+  transition: all 0.4s;
+}
+[data-component="forms/button"]:active {
+  transition: none;
+}
