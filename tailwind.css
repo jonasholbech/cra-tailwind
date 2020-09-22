@@ -1,4 +1,7 @@
-/* src/tailwind.css */
+/*TODO: try to remove these when building*/
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+/* purgecss end ignore */
+
 @tailwind utilities;
